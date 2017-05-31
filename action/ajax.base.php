@@ -39,7 +39,7 @@ switch ($_POST['action']){
                 
         case "showCityForInsert":
                 echo '<select size="1" name="city" onchange="javascript:selectNews();">';
-
+                echo "<option>Выбрать город</option>";
                 $query = 'SELECT * FROM tbl_city WHERE id_region=' . $_POST['id_region'];
                 
                 $result = mysqli_query($connection, $query);
