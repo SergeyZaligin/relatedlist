@@ -4,20 +4,7 @@ require "../db.php";
 
 switch ($_POST['action']){
 
-        case "showNews":
-
-                  $query = "SELECT * FROM `tbl_news` WHERE country_id = " .$_POST['id_country']. 
-                  " AND region_id = ".$_POST['id_region'];
-
-                  $result = mysqli_query($connection, $query);
-
-                  while ($row = mysqli_fetch_assoc($result)) {
-                      echo "<article>";
-                      echo $row['title'];
-                      echo "</article>";
-                  }
-              
-                break;
+        
 
         case "showCountry":
 
@@ -51,7 +38,7 @@ switch ($_POST['action']){
                 break;
                 
         case "showCityForInsert":
-                echo '<select size="1" name="city">';
+                echo '<select size="1" name="city" onchange="javascript:selectNews();">';
 
                 $query = 'SELECT * FROM tbl_city WHERE id_region=' . $_POST['id_region'];
                 
@@ -64,6 +51,21 @@ switch ($_POST['action']){
                   }
 
                 echo '</select>';
+                break;
+
+                case "showNews":
+
+                  $query = "SELECT * FROM `tbl_news` WHERE country_id = " .$_POST['id_country']. 
+                  " AND region_id = ".$_POST['id_region']." AND city_id = " . $_POST['id_city'];
+
+                  $result = mysqli_query($connection, $query);
+
+                  while ($row = mysqli_fetch_assoc($result)) {
+                      echo "<article>";
+                      echo $row['title'];
+                      echo "</article>";
+                  }
+              
                 break;
         
 };

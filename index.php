@@ -21,10 +21,12 @@
   </optgroup>
 </select>
 
-<div name="selectDataRegion" style="float:left;"></div>
-<div name="selectDataCity" style="float:left;"></div>
+<div name="selectDataRegion" style="float:left;" ></div>
+<div name="selectDataCity" " style="float:left;"></div>
 
-<div class="b-news"></div> <br>
+<div class="b-news">
+
+</div> <br>
 
 </span>
 </body>

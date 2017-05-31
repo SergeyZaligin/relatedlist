@@ -66,11 +66,12 @@ function selectCity()
 /*
 * Показать News
 */
-function selectCity()
+function selectNews()
 {
-var id_city = $('select[name="city"]').val();
+
   var id_region = $('select[name="region"]').val();
-var id_country = $('select[name="country"]').val();
+  var id_country = $('select[name="country"]').val();
+  var id_city = $('select[name="city"]').val();
 
   $.ajax({
     type: "POST",
