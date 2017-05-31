@@ -1,4 +1,5 @@
 <?php require_once('db.php'); ?>
+<!-- <?php require_once('functions.php'); ?> -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,28 +12,35 @@
 </head>
 <body>
 
-<select size="1" name="country" onchange="javascript:selectRegion();" style="float:left;">
+<select size="1" name="country"  onchange="javascript:selectRegion();" style="float:left;">
   <option value="">Все страны</option>
-  <optgroup label="Выберите страну">
-    <?php 
-      $query = "SELECT * FROM tbl_country";
+  <optgroup class="gr" label="Выберите страну">
+    <script>
+    function selectCountry()
+    {
+     
+      $.ajax({
+              type: "POST",
+              url: "/action/ajax.base.php",
+              data: { action: 'showCountry'},
+              cache: false,
+              success: function(responce){  $('.gr').html(responce); console.log(responce);}
+      });
 
-      $result = mysqli_query($connection, $query);
-
-      while ($row = mysqli_fetch_assoc($result)) {
-        echo "<option value='". $row['id_country'] ."'>";
-        echo $row['country'];
-        echo "</option>";
-      }
-    ?>
+    };
+      selectCountry();
+    </script>
   </optgroup>
 </select>
+
 
 <div name="selectDataRegion" style="float:left;"></div>
 <div name="selectDataCity" style="float:left;"></div>
 
 <script>
-   function selectRegion(){
+
+   function selectRegion()
+   {
 
         var id_country = $('select[name="country"]').val();
 
@@ -52,7 +60,8 @@
         };
 };
 
-function selectCity(){
+function selectCity()
+{
 
         var id_region = $('select[name="region"]').val();
 

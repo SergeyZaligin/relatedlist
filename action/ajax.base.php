@@ -4,7 +4,21 @@
 require "../db.php";
 
 switch ($_POST['action']){
-                
+
+        case "showCountry":
+
+                  $query = "SELECT * FROM tbl_country";
+
+                  $result = mysqli_query($connection, $query);
+
+                  while ($row = mysqli_fetch_assoc($result)) {
+                      echo "<option value='". $row['id_country'] ."'>";
+                      echo $row['country'];
+                      echo "</option>";
+                  }
+              
+                break;
+
         case "showRegionForInsert":
 
                 echo '<select size="1" name="region" onchange="javascript:selectCity();">';
@@ -18,7 +32,7 @@ switch ($_POST['action']){
                     echo $row['region'];
                     echo "</option>";
                   }
-                  
+
                 echo '</select>';
                 break;
                 
