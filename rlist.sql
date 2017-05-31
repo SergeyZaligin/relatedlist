@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 31, 2017 at 03:22 
+-- Generation Time: May 31, 2017 at 03:45 
 -- Server version: 5.7.13
 -- PHP Version: 5.5.37
 
@@ -61,6 +61,29 @@ INSERT INTO `tbl_country` (`id_country`, `country`) VALUES
 (4, 'Израиль'),
 (2, 'Россия'),
 (1, 'Украина');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_news`
+--
+
+CREATE TABLE IF NOT EXISTS `tbl_news` (
+  `id` int(10) unsigned NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `prev` varchar(255) NOT NULL,
+  `content` varchar(255) NOT NULL,
+  `city_id` int(10) unsigned NOT NULL,
+  `country_id` int(11) NOT NULL,
+  `region_id` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tbl_news`
+--
+
+INSERT INTO `tbl_news` (`id`, `title`, `prev`, `content`, `city_id`, `country_id`, `region_id`) VALUES
+(1, 'Донецк ', 'Анонс статьи', 'статья', 5, 1, 4);
 
 -- --------------------------------------------------------
 
@@ -223,6 +246,12 @@ ALTER TABLE `tbl_country`
   ADD UNIQUE KEY `country` (`country`);
 
 --
+-- Indexes for table `tbl_news`
+--
+ALTER TABLE `tbl_news`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tbl_region`
 --
 ALTER TABLE `tbl_region`
@@ -244,6 +273,11 @@ ALTER TABLE `tbl_city`
 --
 ALTER TABLE `tbl_country`
   MODIFY `id_country` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `tbl_news`
+--
+ALTER TABLE `tbl_news`
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `tbl_region`
 --

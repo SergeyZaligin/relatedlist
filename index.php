@@ -21,6 +21,8 @@
   </optgroup>
 </select>
 
+<div class="b-news"></div> 
+
 <div name="selectDataRegion" style="float:left;"></div>
 <div name="selectDataCity" style="float:left;"></div>
 

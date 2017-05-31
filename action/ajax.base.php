@@ -1,9 +1,22 @@
 <?php
 
-# include data base
 require "../db.php";
 
 switch ($_POST['action']){
+
+        case "showNews":
+
+                  $query = "SELECT * FROM `tbl_news` WHERE country_id = 1 AND region_id = 4 AND city_id = 5";
+
+                  $result = mysqli_query($connection, $query);
+
+                  while ($row = mysqli_fetch_assoc($result)) {
+                      echo "<option value='". $row['id_country'] ."'>";
+                      echo $row['country'];
+                      echo "</option>";
+                  }
+              
+                break;
 
         case "showCountry":
 
