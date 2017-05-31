@@ -18,6 +18,7 @@ switch ($_POST['action']){
                     echo $row['region'];
                     echo "</option>";
                   }
+                  
                 echo '</select>';
                 break;
                 

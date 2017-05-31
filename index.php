@@ -14,10 +14,17 @@
 <select size="1" name="country" onchange="javascript:selectRegion();" style="float:left;">
   <option value="">Все страны</option>
   <optgroup label="Выберите страну">
-    <option value="3">Белоруссия</option>
-    <option value="4">Израиль</option>
-    <option value="2">Россия</option>
-    <option value="1">Украина</option>
+    <?php 
+      $query = "SELECT * FROM tbl_country";
+
+      $result = mysqli_query($connection, $query);
+
+      while ($row = mysqli_fetch_assoc($result)) {
+        echo "<option value='". $row['id_country'] ."'>";
+        echo $row['country'];
+        echo "</option>";
+      }
+    ?>
   </optgroup>
 </select>
 
@@ -26,10 +33,14 @@
 
 <script>
    function selectRegion(){
+
         var id_country = $('select[name="country"]').val();
+
         if(!id_country){
+
                 $('div[name="selectDataRegion"]').html('');
                 $('div[name="selectDataCity"]').html('');
+
         }else{
                 $.ajax({
                         type: "POST",
@@ -42,7 +53,9 @@
 };
 
 function selectCity(){
+
         var id_region = $('select[name="region"]').val();
+
         $.ajax({
                 type: "POST",
                 url: "/action/ajax.base.php",
