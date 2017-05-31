@@ -62,7 +62,8 @@ switch ($_POST['action']){
 
                   while ($row = mysqli_fetch_assoc($result)) {
                       echo "<article>";
-                      echo $row['title'];
+                      echo "<h2>" . $row['title'] . "</h2>";
+                      echo "<blockquote>" . $row['prev'] . "</blockquote>";
                       echo "</article>";
                   }
               
@@ -70,6 +71,6 @@ switch ($_POST['action']){
         
 };
 
-print_r($_POST);
+// print_r($_POST);
 
 ?>

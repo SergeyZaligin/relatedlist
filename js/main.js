@@ -51,7 +51,6 @@ function selectCity()
 
   var id_region = $('select[name="region"]').val();
 
-
   $.ajax({
     type: "POST",
     url: "/action/ajax.base.php",
