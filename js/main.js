@@ -48,13 +48,14 @@ function selectRegion()
 */
 function selectCity()
 {
-
+var id_city = $('select[name="city"]').val();
   var id_region = $('select[name="region"]').val();
+
 
   $.ajax({
     type: "POST",
     url: "/action/ajax.base.php",
-    data: { action: 'showCityForInsert', id_region: id_region },
+    data: { action: 'showCityForInsert', id_region: id_region, id_city: id_city },
     cache: false,
     success: function(responce){ 
       $('div[name="selectDataCity"]').html(responce); 

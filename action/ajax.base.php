@@ -6,7 +6,8 @@ switch ($_POST['action']){
 
         case "showNews":
 
-                  $query = "SELECT * FROM `tbl_news` WHERE country_id = 1 AND region_id = 4 AND city_id = 5";
+                  $query = "SELECT * FROM `tbl_news` WHERE country_id = " .$_POST['id_country']. 
+                  " AND region_id = ".$_POST['id_region']." AND city_id = " . $_POST['id_city'];
 
                   $result = mysqli_query($connection, $query);
 
@@ -66,5 +67,7 @@ switch ($_POST['action']){
                 break;
         
 };
+
+print_r($_POST);
 
 ?>
