@@ -9,15 +9,10 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script>
     $(document).ready(function () {
-      var id = $('.league').val();
-      $('select[name="command"]').change(function () {
-        alert('select[name="command"]').val();
-      });
-      $('.league').change(function () {
-        var id = $('.league').val();
-        if(id == 0){
 
-        }
+      var id = $('.league').val();
+
+      $('.league').change(function () {
         $.ajax({
           type: "POST",
           url: 'index.php',
