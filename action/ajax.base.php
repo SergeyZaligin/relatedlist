@@ -7,14 +7,14 @@ switch ($_POST['action']){
         case "showNews":
 
                   $query = "SELECT * FROM `tbl_news` WHERE country_id = " .$_POST['id_country']. 
-                  " AND region_id = ".$_POST['id_region']." AND city_id = " . $_POST['id_city'];
+                  " AND region_id = ".$_POST['id_region'];
 
                   $result = mysqli_query($connection, $query);
 
                   while ($row = mysqli_fetch_assoc($result)) {
-                      echo "<option value='". $row['id_country'] ."'>";
-                      echo $row['country'];
-                      echo "</option>";
+                      echo "<article>";
+                      echo $row['title'];
+                      echo "</article>";
                   }
               
                 break;

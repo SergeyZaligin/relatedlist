@@ -48,17 +48,37 @@ function selectRegion()
 */
 function selectCity()
 {
-var id_city = $('select[name="city"]').val();
+
   var id_region = $('select[name="region"]').val();
 
 
   $.ajax({
     type: "POST",
     url: "/action/ajax.base.php",
-    data: { action: 'showCityForInsert', id_region: id_region, id_city: id_city },
+    data: { action: 'showCityForInsert', id_region: id_region},
     cache: false,
     success: function(responce){ 
       $('div[name="selectDataCity"]').html(responce); 
+    }
+  });
+};
+
+/*
+* Показать News
+*/
+function selectCity()
+{
+var id_city = $('select[name="city"]').val();
+  var id_region = $('select[name="region"]').val();
+var id_country = $('select[name="country"]').val();
+
+  $.ajax({
+    type: "POST",
+    url: "/action/ajax.base.php",
+    data: { action: 'showNews', id_city: id_city, id_country: id_country, id_region: id_region },
+    cache: false,
+    success: function(responce){ 
+      $('.b-news').html(responce); 
     }
   });
 };
